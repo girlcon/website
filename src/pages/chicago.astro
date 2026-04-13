@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<Base
+  title="GirlCon Chicago — GirlCon"
+  description="GirlCon Chicago is our in-person conference held in Chicago, IL. Featuring keynotes, workshops, and networking opportunities."
+>
+
+  <!-- Hero -->
+  <section class="pt-32 pb-20 px-6 bg-[#fff8f4] text-center">
+    <p class="text-xs font-semibold tracking-[0.15em] uppercase text-[#a180be] mb-4">In Person</p>
+    <h1 class="font-['Playfair_Display'] text-5xl md:text-7xl font-bold text-[#1a1225] mb-5">
+      GirlCon Chicago
+    </h1>
+    <p class="text-[#7c6f8a] text-lg max-w-xl mx-auto mb-10">
+      Our flagship in-person conference held in Chicago, IL — featuring keynotes, breakout sessions, and networking opportunities.
+    </p>
+    <div
+      class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#f3ecf8] text-[#6b4fa0] font-medium text-sm"
+    >
+      🗓 Dates for 2026 coming soon
+    </div>
+  </section>
+
+  <!-- Placeholder content sections -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="font-['Playfair_Display'] text-3xl md:text-4xl font-bold text-[#1a1225] mb-4">
+          What to Expect
+        </h2>
+        <p class="text-[#7c6f8a] max-w-lg mx-auto">
+          GirlCon Chicago brings together students, industry professionals, and community leaders for a full day of learning and connection.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          { icon: "🎤", title: "Keynote Speakers", desc: "Hear from inspiring women across tech, business, and creative industries." },
+          { icon: "🛠", title: "Workshops", desc: "Hands-on breakout sessions covering topics from coding to career development." },
+          { icon: "🤝", title: "Networking", desc: "Connect with peers, mentors, and potential employers from leading companies." },
+        ].map((item) => (
+          <div class="text-center p-6 rounded-2xl bg-[#fff8f4] border border-purple-50">
+            <p class="text-4xl mb-4">{item.icon}</p>
+            <h3 class="font-['Playfair_Display'] font-bold text-lg text-[#1a1225] mb-2">{item.title}</h3>
+            <p class="text-sm text-[#7c6f8a]">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Speakers placeholder -->
+  <section class="py-20 px-6 bg-[#fff8f4]">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="font-['Playfair_Display'] text-3xl md:text-4xl font-bold text-[#1a1225] mb-4">Speakers</h2>
+      <p class="text-[#7c6f8a] max-w-md mx-auto mb-10">
+        2026 speaker announcements coming soon. Follow us on Instagram @girlcontech to stay updated!
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {Array(4).fill(null).map((_, i) => (
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50">
+            <div
+              class="aspect-square flex items-center justify-center text-3xl"
+              style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
+            >?</div>
+            <div class="p-3 text-center">
+              <p class="text-sm font-semibold text-[#7c6f8a]">Speaker TBA</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule placeholder -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-['Playfair_Display'] text-3xl md:text-4xl font-bold text-[#1a1225] mb-4">Schedule</h2>
+      <p class="text-[#7c6f8a]">The full 2026 schedule will be posted here once confirmed.</p>
+    </div>
+  </section>
+
+  <!-- Registration CTA -->
+  <section class="py-16 px-6" style="background: linear-gradient(135deg, #a180be, #6b4fa0);">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="font-['Playfair_Display'] text-3xl font-bold text-white mb-4">Register for GirlCon Chicago 2026</h2>
+      <p class="text-purple-200 mb-8">Registration opens soon. Join the mailing list to be the first to know!</p>
+      <a
+        href="https://bit.ly/girlconmailinglist"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-[#6b4fa0] font-semibold hover:bg-cream transition-colors"
+      >
+        Join the Mailing List
+      </a>
+    </div>
+  </section>
+
+  <Contact />
+</Base>

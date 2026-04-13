@@ -1,0 +1,147 @@
+---
+const path = Astro.url.pathname;
+
+const navLinks = [
+  { label: "About", href: "/#about" },
+  { label: "Sponsors", href: "/#sponsors" },
+  { label: "Leadership", href: "/#leadership" },
+  { label: "Past Events", href: "/#past-events" },
+  { label: "FAQs", href: "/#faqs" },
+  { label: "Contact", href: "/#contact" },
+];
+---
+
+<nav
+  id="site-nav"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+
+    <!-- Wordmark -->
+    <a
+      href="/"
+      class="font-['Playfair_Display'] text-xl font-bold text-[#6b4fa0] tracking-tight hover:text-[#3d2466] transition-colors"
+    >
+      GirlCon
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="hidden md:flex items-center gap-7 text-sm font-medium text-[#1a1225]">
+
+      <li><a href="/#about" class="hover:text-[#a180be] transition-colors">About</a></li>
+
+      <!-- Conferences dropdown -->
+      <li class="relative group">
+        <button
+          class="flex items-center gap-1 hover:text-[#a180be] transition-colors"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Conferences
+          <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 12 12" fill="none">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div
+          class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-44 bg-white rounded-xl shadow-lg shadow-purple-900/10 border border-purple-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-1 group-hover:translate-y-0"
+        >
+          <a
+            href="/chicago"
+            class="block px-4 py-3 text-sm hover:bg-[#fff8f4] hover:text-[#6b4fa0] transition-colors rounded-t-xl"
+          >GirlCon Chicago</a>
+          <a
+            href="/virtual"
+            class="block px-4 py-3 text-sm hover:bg-[#fff8f4] hover:text-[#6b4fa0] transition-colors rounded-b-xl border-t border-purple-50"
+          >GirlCon Virtual</a>
+        </div>
+      </li>
+
+      {navLinks.slice(1).map((link) => (
+        <li>
+          <a href={link.href} class="hover:text-[#a180be] transition-colors">
+            {link.label}
+          </a>
+        </li>
+      ))}
+
+    </ul>
+
+    <!-- CTA button (desktop) -->
+    <a
+      href="/#contact"
+      class="hidden md:inline-flex items-center px-4 py-2 rounded-full bg-[#a180be] text-white text-sm font-medium hover:bg-[#6b4fa0] transition-colors"
+    >
+      Get Involved
+    </a>
+
+    <!-- Hamburger (mobile) -->
+    <button
+      id="nav-hamburger"
+      class="md:hidden p-2 rounded-lg hover:bg-purple-50 transition-colors"
+      aria-label="Open menu"
+    >
+      <svg id="icon-open" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M3 5h14a1 1 0 010 2H3a1 1 0 010-2zm0 4h14a1 1 0 010 2H3a1 1 0 010-2zm0 4h14a1 1 0 010 2H3a1 1 0 010-2z" clip-rule="evenodd"/>
+      </svg>
+      <svg id="icon-close" class="w-5 h-5 hidden" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+      </svg>
+    </button>
+
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden bg-white/95 backdrop-blur-md border-t border-purple-100"
+  >
+    <ul class="flex flex-col py-4 px-6 gap-1 text-sm font-medium">
+      <li><a href="/#about" class="block py-2 hover:text-[#a180be] transition-colors">About</a></li>
+      <li class="py-1">
+        <span class="text-xs uppercase tracking-widest text-[#7c6f8a] font-semibold">Conferences</span>
+        <a href="/chicago" class="block py-2 pl-3 hover:text-[#a180be] transition-colors">GirlCon Chicago</a>
+        <a href="/virtual" class="block py-2 pl-3 hover:text-[#a180be] transition-colors">GirlCon Virtual</a>
+      </li>
+      <li><a href="/#sponsors" class="block py-2 hover:text-[#a180be] transition-colors">Sponsors</a></li>
+      <li><a href="/#leadership" class="block py-2 hover:text-[#a180be] transition-colors">Leadership</a></li>
+      <li><a href="/#past-events" class="block py-2 hover:text-[#a180be] transition-colors">Past Events</a></li>
+      <li><a href="/#faqs" class="block py-2 hover:text-[#a180be] transition-colors">FAQs</a></li>
+      <li><a href="/#contact" class="block py-2 hover:text-[#a180be] transition-colors">Contact</a></li>
+      <li class="pt-2">
+        <a href="/#contact" class="inline-flex items-center px-5 py-2 rounded-full bg-[#a180be] text-white font-medium hover:bg-[#6b4fa0] transition-colors">
+          Get Involved
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  // Glass effect on scroll
+  const nav = document.getElementById('site-nav')!;
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 24);
+  }, { passive: true });
+
+  // Mobile menu toggle
+  const hamburger = document.getElementById('nav-hamburger')!;
+  const mobileMenu = document.getElementById('mobile-menu')!;
+  const iconOpen = document.getElementById('icon-open')!;
+  const iconClose = document.getElementById('icon-close')!;
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden', isOpen);
+    iconOpen.classList.toggle('hidden', !isOpen);
+    iconClose.classList.toggle('hidden', isOpen);
+  });
+
+  // Close mobile menu on link click
+  mobileMenu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    });
+  });
+</script>

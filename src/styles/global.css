@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fff8f4;
+  --color-purple: #a180be;
+  --color-purple-dark: #6b4fa0;
+  --color-purple-deep: #3d2466;
+  --color-text: #1a1225;
+  --color-muted: #7c6f8a;
+}
+
+/* ── Base ─────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #fff8f4;
+    color: #1a1225;
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* ── Hero orb animations ──────────────────────── */
+@keyframes float-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(25px, -35px) scale(1.06); }
+}
+@keyframes float-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-30px, 20px) scale(0.94); }
+  66%       { transform: translate(18px, 30px) scale(1.04); }
+}
+@keyframes float-c {
+  0%, 100% { transform: translate(0, 0); }
+  50%       { transform: translate(12px, -18px); }
+}
+
+.orb-a { animation: float-a 9s ease-in-out infinite; }
+.orb-b { animation: float-b 13s ease-in-out infinite; }
+.orb-c { animation: float-c 7s ease-in-out infinite; }
+
+/* ── Sponsor marquee ──────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 38s linear infinite;
+  will-change: transform;
+}
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ── Scroll fade-up ───────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Nav glass ────────────────────────────────── */
+#site-nav.scrolled {
+  background-color: rgba(255, 248, 244, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 16px 0 rgba(161, 128, 190, 0.08);
+}
+
+/* ── FAQ accordion ────────────────────────────── */
+details summary::-webkit-details-marker { display: none; }
+details summary { cursor: pointer; list-style: none; }
+details .faq-arrow { transition: transform 0.25s ease; }
+details[open] .faq-arrow { transform: rotate(180deg); }
+details .faq-body {
+  overflow: hidden;
+  transition: max-height 0.35s ease-out;
+}
+
+/* ── Team card hover ──────────────────────────── */
+.team-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px -8px rgba(107, 79, 160, 0.18);
+}
+.team-card:hover .team-photo {
+  transform: scale(1.04);
+}
+.team-photo {
+  transition: transform 0.35s ease;
+}
+
+/* ── Carousel ─────────────────────────────────── */
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}

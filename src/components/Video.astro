@@ -1,0 +1,56 @@
+---
+// Featured video section — GirlCon 2025 YouTube sessions
+const videos = [
+  {
+    id: "YOUR_VIDEO_ID_1",
+    title: "GirlCon 2025 Virtual Opening Session + Keynote",
+    description: "GirlCon invites you to watch our opening ceremony from our 2025 virtual event.",
+  },
+  {
+    id: "YOUR_VIDEO_ID_2",
+    title: "GirlCon 2025 — Closing Ceremony + Keynote",
+    description: "Join us for the closing ceremony and keynote from GirlCon 2025.",
+  },
+];
+// Replace YOUR_VIDEO_ID_1 / _2 with the actual YouTube video IDs.
+// e.g. for https://youtube.com/watch?v=dQw4w9WgXcQ → id is "dQw4w9WgXcQ"
+---
+
+<section class="py-24 px-6 bg-[#fff8f4]">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-14 fade-up">
+      <p class="text-xs font-semibold tracking-[0.15em] uppercase text-[#a180be] mb-3">Watch</p>
+      <h2 class="font-['Playfair_Display'] text-4xl md:text-5xl font-bold text-[#1a1225]">
+        GirlCon 2025 Sessions
+      </h2>
+      <p class="text-[#7c6f8a] mt-4 max-w-md mx-auto">
+        Catch up on our live-streamed sessions from GirlCon 2025.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {videos.map((video, i) => (
+        <div class="fade-up" style={`transition-delay: ${i * 0.12}s;`}>
+          <div class="rounded-2xl overflow-hidden shadow-lg shadow-purple-200/30 bg-white">
+            <div class="aspect-video w-full">
+              <iframe
+                src={`https://www.youtube.com/embed/${video.id}`}
+                title={video.title}
+                class="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-[#1a1225] leading-snug mb-1">{video.title}</h3>
+              <p class="text-sm text-[#7c6f8a]">{video.description}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

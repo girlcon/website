@@ -1,0 +1,75 @@
+---
+// Stats section — animated counters on scroll
+const stats = [
+  {
+    value: 5000,
+    suffix: "+",
+    label: "Total Attendees",
+    sub: "Across 8 years of conferences",
+  },
+  {
+    value: 280,
+    suffix: "+",
+    label: "Industry Professionals",
+    sub: "Incredible women invited each year",
+  },
+  {
+    value: 35,
+    suffix: "+",
+    label: "Countries Represented",
+    sub: "Future leaders from around the world",
+  },
+];
+---
+
+<section class="py-20 px-6" style="background: linear-gradient(135deg, #6b4fa0 0%, #a180be 100%);">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-10 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-white/20">
+      {stats.map((stat, i) => (
+        <div
+          class="flex flex-col items-center text-center py-8 md:py-0 md:px-12 fade-up"
+          style={`transition-delay: ${i * 0.1}s;`}
+        >
+          <p class="font-['Playfair_Display'] text-6xl font-bold text-white leading-none mb-3">
+            <span
+              class="counter"
+              data-target={stat.value}
+              data-suffix={stat.suffix}
+            >0+</span>
+          </p>
+          <p class="text-white font-semibold text-lg mb-1">{stat.label}</p>
+          <p class="text-white/70 text-sm">{stat.sub}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animate number counters when they scroll into view
+  const counters = document.querySelectorAll<HTMLElement>('.counter');
+  if (counters.length) {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target as HTMLElement;
+          const target = parseInt(el.dataset.target || '0', 10);
+          const suffix = el.dataset.suffix || '';
+          const duration = 1200;
+          const start = performance.now();
+          function tick(now: number) {
+            const elapsed = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - elapsed, 3); // ease-out cubic
+            el.textContent = Math.floor(eased * target).toLocaleString() + suffix;
+            if (elapsed < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+          obs.unobserve(el);
+        });
+      },
+      { threshold: 0.5 }
+    );
+    counters.forEach((c) => obs.observe(c));
+  }
+</script>

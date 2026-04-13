@@ -1,0 +1,69 @@
+---
+// About Us section — photo left, text right
+---
+
+<section id="about" class="py-24 px-6 bg-[#fff8f4]">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+
+    <!-- Photo -->
+    <div class="fade-up">
+      <div class="relative">
+        <img
+          src="/images/about-event.jpg"
+          alt="Attendees at a GirlCon event"
+          class="w-full rounded-2xl object-cover aspect-[4/3] shadow-xl shadow-purple-200/40"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <!-- Placeholder shown if image missing -->
+        <div
+          class="w-full rounded-2xl aspect-[4/3] hidden items-center justify-center text-[#a180be] text-sm font-medium"
+          style="background: linear-gradient(135deg, #f3ecf8 0%, #e8d5f5 100%);"
+        >
+          Replace with event photo → public/images/about-event.jpg
+        </div>
+        <!-- Decorative offset block -->
+        <div
+          class="absolute -bottom-4 -right-4 w-full h-full rounded-2xl -z-10"
+          style="background: linear-gradient(135deg, rgba(161,128,190,0.2), rgba(107,79,160,0.1));"
+        ></div>
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="fade-up" style="transition-delay: 0.15s;">
+      <p class="text-xs font-semibold tracking-[0.15em] uppercase text-[#a180be] mb-3">About Us</p>
+      <h2 class="font-['Playfair_Display'] text-4xl md:text-5xl font-bold text-[#1a1225] mb-4 leading-tight">
+        Empowering the next generation of womxn leaders
+      </h2>
+      <p class="text-[#7c6f8a] text-sm font-medium mb-6">For our <strong class="text-[#a180be]">eighth</strong> year</p>
+
+      <div class="space-y-4 text-[#1a1225]/80 leading-relaxed">
+        <p>
+          GirlCon is an international tech conference (for students, by students), aiming to empower the next generation of leaders. The annual event features breakout, professional development, and keynote sessions from numerous companies and backgrounds.
+        </p>
+        <p>
+          We focus on how technology is a huge factor in <em>every</em> career field, whether it be science, fashion, or anything that students are passionate about. The lack of diversity in STEM is an issue that everyone on the GirlCon team strives to fix.
+        </p>
+        <p>
+          Our attendees personally connect with companies from countless career paths and gain mentorship from women in both college and the workforce.
+        </p>
+      </div>
+
+      <div class="mt-8 flex gap-4">
+        <a
+          href="/chicago"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#a180be] text-white text-sm font-medium hover:bg-[#6b4fa0] transition-colors"
+        >
+          GirlCon Chicago →
+        </a>
+        <a
+          href="/virtual"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#a180be] text-[#6b4fa0] text-sm font-medium hover:bg-[#a180be] hover:text-white transition-colors"
+        >
+          GirlCon Virtual →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

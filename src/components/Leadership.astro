@@ -1,0 +1,151 @@
+---
+import { cofounders, board } from '../data/board.js';
+import { coreTeam } from '../data/core-team.js';
+
+// Helper to get initials for the avatar fallback
+function initials(name: string) {
+  return name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase();
+}
+---
+
+<section id="leadership" class="py-24 px-6 bg-[#fff8f4]">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Section header -->
+    <div class="text-center mb-14 fade-up">
+      <p class="text-xs font-semibold tracking-[0.15em] uppercase text-[#a180be] mb-3">The People Behind GirlCon</p>
+      <h2 class="font-['Playfair_Display'] text-4xl md:text-5xl font-bold text-[#1a1225]">Leadership</h2>
+    </div>
+
+    <!-- Tab switcher -->
+    <div class="flex justify-center mb-12 fade-up" style="transition-delay: 0.1s;">
+      <div class="inline-flex bg-white rounded-full p-1 shadow-sm border border-purple-100">
+        <button
+          id="tab-board"
+          class="tab-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-[#a180be] text-white shadow-sm"
+          data-panel="panel-board"
+        >Board of Directors</button>
+        <button
+          id="tab-core"
+          class="tab-btn px-6 py-2 rounded-full text-sm font-medium transition-all text-[#7c6f8a] hover:text-[#6b4fa0]"
+          data-panel="panel-core"
+        >CORE Team</button>
+      </div>
+    </div>
+
+    <!-- Board panel -->
+    <div id="panel-board">
+
+      <!-- Co-Founders -->
+      <div class="mb-14">
+        <h3 class="text-center text-sm font-semibold tracking-widest uppercase text-[#7c6f8a] mb-8">Co-Founders</h3>
+        <div class="flex flex-wrap justify-center gap-8">
+          {cofounders.map((person) => (
+            <div class="team-card bg-white rounded-2xl overflow-hidden w-56 shadow-sm border border-purple-50">
+              <div class="overflow-hidden aspect-square">
+                <img
+                  src={person.photo}
+                  alt={person.name}
+                  class="team-photo w-full h-full object-cover object-top"
+                  onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
+                />
+                <div
+                  class="w-full h-full hidden items-center justify-center text-2xl font-bold text-[#6b4fa0]"
+                  style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
+                >{initials(person.name)}</div>
+              </div>
+              <div class="p-4 text-center">
+                <p class="font-semibold text-[#1a1225]">{person.name}</p>
+                <p class="text-xs text-[#a180be] font-medium mt-0.5">{person.role}</p>
+                {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Board members -->
+      <div>
+        <h3 class="text-center text-sm font-semibold tracking-widest uppercase text-[#7c6f8a] mb-8">Board Members</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+          {board.map((person) => (
+            <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50">
+              <div class="overflow-hidden aspect-square">
+                <img
+                  src={person.photo}
+                  alt={person.name}
+                  class="team-photo w-full h-full object-cover object-top"
+                  onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
+                />
+                <div
+                  class="w-full h-full hidden items-center justify-center text-2xl font-bold text-[#6b4fa0]"
+                  style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
+                >{initials(person.name)}</div>
+              </div>
+              <div class="p-4 text-center">
+                <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
+                <p class="text-xs text-[#a180be] font-medium mt-0.5">{person.role}</p>
+                {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CORE Team panel (hidden by default) -->
+    <div id="panel-core" class="hidden">
+      <div class="mb-6 text-center fade-up">
+        <p class="text-[#7c6f8a] max-w-xl mx-auto text-sm">
+          Meet the Co-Directors, Senior VPs, and team heads making GirlCon happen — by highschoolers, for highschoolers.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        {coreTeam.map((person) => (
+          <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50">
+            <div class="overflow-hidden aspect-square">
+              <img
+                src={person.photo}
+                alt={person.name}
+                class="team-photo w-full h-full object-cover object-top"
+                onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
+              />
+              <div
+                class="w-full h-full hidden items-center justify-center text-2xl font-bold text-[#6b4fa0]"
+                style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
+              >{initials(person.name)}</div>
+            </div>
+            <div class="p-4 text-center">
+              <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
+              <p class="text-xs text-[#a180be] font-medium mt-0.5">{person.role}</p>
+              {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const tabBtns = document.querySelectorAll<HTMLElement>('.tab-btn');
+  tabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.panel!;
+      // Update button styles
+      tabBtns.forEach((b) => {
+        const isActive = b === btn;
+        b.classList.toggle('bg-[#a180be]', isActive);
+        b.classList.toggle('text-white', isActive);
+        b.classList.toggle('shadow-sm', isActive);
+        b.classList.toggle('text-[#7c6f8a]', !isActive);
+      });
+      // Show/hide panels
+      document.querySelectorAll<HTMLElement>('[id^="panel-"]').forEach((panel) => {
+        panel.classList.toggle('hidden', panel.id !== targetId);
+      });
+    });
+  });
+</script>
