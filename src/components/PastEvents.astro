@@ -1,19 +1,22 @@
 ---
-// Past Events photo carousel
+// Past Events infinite photo marquee — no labels, just photos.
 // Add real photo filenames to the array below.
 // Images go in: public/images/events/
 const photos = [
-  { src: "/images/events/event-01.jpg", alt: "GirlCon attendees at a workshop" },
-  { src: "/images/events/event-02.jpg", alt: "Keynote speaker on stage" },
-  { src: "/images/events/event-03.jpg", alt: "Workshop participants" },
-  { src: "/images/events/event-04.jpg", alt: "GirlCon team with raised hands" },
-  { src: "/images/events/event-05.jpg", alt: "Networking session" },
-  { src: "/images/events/event-06.jpg", alt: "Group photo" },
-  { src: "/images/events/event-07.jpg", alt: "Panel discussion" },
-  { src: "/images/events/event-08.jpg", alt: "Breakout session" },
-  { src: "/images/events/event-09.jpg", alt: "Award ceremony" },
-  { src: "/images/events/event-10.jpg", alt: "Closing ceremony" },
+  { src: "/images/events/event-01.jpg", alt: "GirlCon event photo" },
+  { src: "/images/events/event-02.jpg", alt: "GirlCon event photo" },
+  { src: "/images/events/event-03.jpg", alt: "GirlCon event photo" },
+  { src: "/images/events/event-04.jpg", alt: "GirlCon event photo" },
+  { src: "/images/events/event-05.jpg", alt: "GirlCon event photo" },
+  { src: "/images/events/event-06.jpg", alt: "GirlCon event photo" },
+  { src: "/images/events/event-07.jpg", alt: "GirlCon event photo" },
+  { src: "/images/events/event-08.jpg", alt: "GirlCon event photo" },
+  { src: "/images/events/event-09.jpg", alt: "GirlCon event photo" },
+  { src: "/images/events/event-10.jpg", alt: "GirlCon event photo" },
 ];
+
+// Duplicate for seamless infinite loop
+const doubled = [...photos, ...photos];
 
 const years = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
 ---
@@ -34,82 +37,25 @@ const years = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
     </div>
   </div>
 
-  <!-- Carousel -->
-  <div class="relative fade-up" style="transition-delay: 0.1s;">
-    <div class="carousel-track px-6" id="events-carousel">
-      {photos.map((photo) => (
-        <div class="w-72 md:w-80 rounded-2xl overflow-hidden shadow-md shadow-purple-100/50 flex-shrink-0">
+  <!-- Infinite scrolling photo strip -->
+  <div class="photo-marquee-wrap overflow-hidden fade-up" style="transition-delay: 0.1s;">
+    <div class="photo-marquee-track flex items-center gap-4 w-max py-4">
+      {doubled.map((photo) => (
+        <div class="w-72 rounded-2xl overflow-hidden shadow-md shadow-purple-100/50 flex-shrink-0">
           <img
             src={photo.src}
             alt={photo.alt}
-            class="w-full h-56 object-cover"
+            class="w-full h-52 object-cover"
             onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
             loading="lazy"
           />
-          <!-- Placeholder if image missing -->
+          <!-- Placeholder shown while real photos are pending -->
           <div
-            class="w-full h-56 hidden items-center justify-center text-xs text-[#a180be] font-medium text-center p-4"
+            class="w-full h-52 hidden items-center justify-center"
             style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
-          >
-            {photo.alt}<br/>
-            <span class="text-[#7c6f8a] mt-1 block">Add photo → public/images/events/</span>
-          </div>
+          ></div>
         </div>
       ))}
     </div>
-
-    <!-- Arrow buttons -->
-    <button
-      id="carousel-prev"
-      class="absolute left-0 top-1/2 -translate-y-1/2 z-10 ml-2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-[#6b4fa0] hover:bg-[#a180be] hover:text-white transition-colors"
-      aria-label="Previous photos"
-    >
-      <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none">
-        <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-    <button
-      id="carousel-next"
-      class="absolute right-0 top-1/2 -translate-y-1/2 z-10 mr-2 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-[#6b4fa0] hover:bg-[#a180be] hover:text-white transition-colors"
-      aria-label="Next photos"
-    >
-      <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none">
-        <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
   </div>
-
 </section>
-
-<script>
-  const carousel = document.getElementById('events-carousel')!;
-  const prev = document.getElementById('carousel-prev')!;
-  const next = document.getElementById('carousel-next')!;
-
-  const scrollAmount = () => (carousel.querySelector<HTMLElement>(':first-child')?.offsetWidth ?? 320) + 16;
-
-  next.addEventListener('click', () => {
-    carousel.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
-  });
-  prev.addEventListener('click', () => {
-    carousel.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
-  });
-
-  // Auto-advance every 4 seconds, pause on hover
-  let autoplay: ReturnType<typeof setInterval>;
-
-  function startAutoplay() {
-    autoplay = setInterval(() => {
-      const { scrollLeft, scrollWidth, clientWidth } = carousel;
-      if (scrollLeft + clientWidth >= scrollWidth - 10) {
-        carousel.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        carousel.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
-      }
-    }, 4000);
-  }
-
-  startAutoplay();
-  carousel.addEventListener('mouseenter', () => clearInterval(autoplay));
-  carousel.addEventListener('mouseleave', startAutoplay);
-</script>
