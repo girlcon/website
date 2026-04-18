@@ -1,8 +1,7 @@
 ---
-import { cofounders, board } from '../data/board.js';
+import { cofounders, gec, gac } from '../data/board.js';
 import { coreTeam } from '../data/core-team.js';
 
-// Helper to get initials for the avatar fallback
 function initials(name: string) {
   return name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase();
 }
@@ -37,7 +36,7 @@ function initials(name: string) {
     <div id="panel-board">
 
       <!-- Co-Founders -->
-      <div class="mb-14">
+      <div class="mb-16">
         <h3 class="text-center text-sm font-semibold tracking-widest uppercase text-[#7c6f8a] mb-8">Co-Founders</h3>
         <div class="flex flex-wrap justify-center gap-8">
           {cofounders.map((person) => (
@@ -64,32 +63,136 @@ function initials(name: string) {
         </div>
       </div>
 
-      <!-- Board members -->
+      <!-- GirlCon Executive Committee -->
+      <div class="mb-16">
+        <div class="text-center mb-10">
+          <span class="inline-block bg-[#ede4f7] text-[#6b4fa0] text-xs font-bold tracking-[0.12em] uppercase px-5 py-2 rounded-full">
+            GirlCon Executive Committee
+          </span>
+        </div>
+
+        <!-- Futures -->
+        <div class="mb-10">
+          <h4 class="text-center text-xs font-semibold tracking-widest uppercase text-[#a180be] mb-6">GirlCon Futures</h4>
+          <div class="flex flex-wrap justify-center gap-6">
+            {gec.futures.map((person) => (
+              <div class="team-card bg-white rounded-2xl overflow-hidden w-48 shadow-sm border border-purple-50">
+                <div class="overflow-hidden aspect-square">
+                  {person.photo ? (
+                    <img
+                      src={person.photo}
+                      alt={person.name}
+                      class="team-photo w-full h-full object-cover object-top"
+                      onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
+                    />
+                  ) : null}
+                  <div
+                    class={`w-full h-full ${person.photo ? 'hidden' : 'flex'} items-center justify-center text-2xl font-bold text-[#6b4fa0]`}
+                    style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
+                  >{initials(person.name)}</div>
+                </div>
+                <div class="p-3 text-center">
+                  <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
+                  {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Chapters -->
+        <div class="mb-10">
+          <h4 class="text-center text-xs font-semibold tracking-widest uppercase text-[#a180be] mb-6">GirlCon Chapters</h4>
+          <div class="flex flex-wrap justify-center gap-6">
+            {gec.chapters.map((person) => (
+              <div class="team-card bg-white rounded-2xl overflow-hidden w-48 shadow-sm border border-purple-50">
+                <div class="overflow-hidden aspect-square">
+                  {person.photo ? (
+                    <img
+                      src={person.photo}
+                      alt={person.name}
+                      class="team-photo w-full h-full object-cover object-top"
+                      onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
+                    />
+                  ) : null}
+                  <div
+                    class={`w-full h-full ${person.photo ? 'hidden' : 'flex'} items-center justify-center text-2xl font-bold text-[#6b4fa0]`}
+                    style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
+                  >{initials(person.name)}</div>
+                </div>
+                <div class="p-3 text-center">
+                  <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
+                  {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Internal -->
+        <div>
+          <h4 class="text-center text-xs font-semibold tracking-widest uppercase text-[#a180be] mb-6">GirlCon Internal</h4>
+          <div class="flex flex-wrap justify-center gap-6">
+            {gec.internal.map((person) => (
+              <div class="team-card bg-white rounded-2xl overflow-hidden w-48 shadow-sm border border-purple-50">
+                <div class="overflow-hidden aspect-square">
+                  {person.photo ? (
+                    <img
+                      src={person.photo}
+                      alt={person.name}
+                      class="team-photo w-full h-full object-cover object-top"
+                      onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
+                    />
+                  ) : null}
+                  <div
+                    class={`w-full h-full ${person.photo ? 'hidden' : 'flex'} items-center justify-center text-2xl font-bold text-[#6b4fa0]`}
+                    style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
+                  >{initials(person.name)}</div>
+                </div>
+                <div class="p-3 text-center">
+                  <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
+                  {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- GirlCon Advisory Committee -->
       <div>
-        <h3 class="text-center text-sm font-semibold tracking-widest uppercase text-[#7c6f8a] mb-8">Board Members</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-          {board.map((person) => (
-            <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50">
-              <div class="overflow-hidden aspect-square">
-                <img
-                  src={person.photo}
-                  alt={person.name}
-                  class="team-photo w-full h-full object-cover object-top"
-                  onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
-                />
-                <div
-                  class="w-full h-full hidden items-center justify-center text-2xl font-bold text-[#6b4fa0]"
-                  style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
-                >{initials(person.name)}</div>
-              </div>
-              <div class="p-4 text-center">
-                <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
-                <p class="text-xs text-[#a180be] font-medium mt-0.5">{person.role}</p>
-                {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
-              </div>
+        <div class="text-center mb-10">
+          <span class="inline-block bg-[#ede4f7] text-[#6b4fa0] text-xs font-bold tracking-[0.12em] uppercase px-5 py-2 rounded-full">
+            GirlCon Advisory Committee
+          </span>
+        </div>
+
+          {[gac.slice(0, 4), gac.slice(4)].map((row) => (
+            <div class="flex justify-center gap-6 mb-6 last:mb-0">
+              {row.map((person) => (
+                <div class="team-card bg-white rounded-2xl overflow-hidden w-48 shadow-sm border border-purple-50">
+                  <div class="overflow-hidden aspect-square">
+                    {person.photo ? (
+                      <img
+                        src={person.photo}
+                        alt={person.name}
+                        class="team-photo w-full h-full object-cover object-top"
+                        onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
+                      />
+                    ) : null}
+                    <div
+                      class={`w-full h-full ${person.photo ? 'hidden' : 'flex'} items-center justify-center text-2xl font-bold text-[#6b4fa0]`}
+                      style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
+                    >{initials(person.name)}</div>
+                  </div>
+                  <div class="p-3 text-center">
+                    <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
+                    {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
+                  </div>
+                </div>
+              ))}
             </div>
           ))}
-        </div>
       </div>
 
     </div>
@@ -134,7 +237,6 @@ function initials(name: string) {
   tabBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const targetId = btn.dataset.panel!;
-      // Update button styles
       tabBtns.forEach((b) => {
         const isActive = b === btn;
         b.classList.toggle('bg-[#a180be]', isActive);
@@ -142,7 +244,6 @@ function initials(name: string) {
         b.classList.toggle('shadow-sm', isActive);
         b.classList.toggle('text-[#7c6f8a]', !isActive);
       });
-      // Show/hide panels
       document.querySelectorAll<HTMLElement>('[id^="panel-"]').forEach((panel) => {
         panel.classList.toggle('hidden', panel.id !== targetId);
       });

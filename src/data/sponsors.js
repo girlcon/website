@@ -11,4 +11,5 @@ export const sponsors = [
   { name: "Code.org", logo: "/images/sponsors/code.png", url: "https://code.org" },
   { name: "Exelon", logo: "/images/sponsors/exelon.png", url: "https://www.exeloncorp.com/" },
   { name: "Intelliguards", logo: "/images/sponsors/intelliguards.png", url: "https://www.intelliguards.com/" },
+  { name: "Northwestern Ciera", logo: "/images/sponsors/ciera.png", url: "https://ciera.northwestern.edu/" },
 ];
