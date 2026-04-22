@@ -204,9 +204,9 @@ function initials(name: string) {
           Meet the Co-Directors, Senior VPs, and team heads making GirlCon happen — by highschoolers, for highschoolers.
         </p>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      <div class="flex flex-wrap justify-center gap-6">
         {coreTeam.map((person) => (
-          <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50">
+          <div class="team-card bg-white rounded-2xl overflow-hidden w-48 shadow-sm border border-purple-50">
             <div class="overflow-hidden aspect-square">
               <img
                 src={person.photo}
