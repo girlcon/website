@@ -53,11 +53,20 @@
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
 .photo-marquee-track {
   animation: marquee 55s linear infinite;
   will-change: transform;
 }
-.photo-marquee-wrap:hover .photo-marquee-track {
+.photo-marquee-track-reverse {
+  animation: marquee-reverse 55s linear infinite;
+  will-change: transform;
+}
+.photo-marquee-wrap:hover .photo-marquee-track,
+.photo-marquee-wrap:hover .photo-marquee-track-reverse {
   animation-play-state: paused;
 }
 

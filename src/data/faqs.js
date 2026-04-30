@@ -4,12 +4,12 @@ export const faqs = [
   {
     question: "How much is GirlCon?",
     answer:
-      "GirlCon is FREE! We want this event to be open for anyone to attend, and hopefully impact girls of all backgrounds all across the country.",
+      "GirlCon is FREE! We believe every girl deserves access to tech inspiration and community, regardless of her background.",
   },
   {
     question: "When is this event taking place and how can I sign up?",
     answer:
-      "Our 2025 conferences have just wrapped up. Stay tuned for GirlCon 2026 announcements! Follow us on Instagram @girlcontech and join our mailing list to stay updated.",
+      "Stay tuned for GirlCon 2026 announcements! Follow us on Instagram @girlcontech and join our mailing list to stay updated.",
   },
   {
     question: "What should I bring to online sessions?",
