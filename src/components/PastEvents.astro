@@ -3,31 +3,31 @@
 // Row 1 scrolls left, row 2 scrolls right.
 // Add real photo filenames to each array below.
 // Images go in: public/images/events/
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const photosRow1 = [
-  { src: `${base}images/events/event-01.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-02.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-03.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-04.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-05.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-06.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-07.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-08.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-09.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-10.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-01.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-02.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-03.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-04.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-05.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-06.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-07.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-08.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-09.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-10.jpg`, alt: "GirlCon event photo" },
 ];
 
 const photosRow2 = [
-  { src: `${base}images/events/event-11.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-12.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-13.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-14.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-15.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-16.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-17.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-18.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-19.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}images/events/event-20.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-11.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-12.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-13.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-14.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-15.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-16.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-17.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-18.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-19.jpg`, alt: "GirlCon event photo" },
+  { src: `${base}/images/events/event-20.jpg`, alt: "GirlCon event photo" },
 ];
 
 // Duplicate each row for seamless infinite loop

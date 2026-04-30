@@ -5,8 +5,8 @@ import { coreTeam } from '../data/core-team.js';
 function initials(name: string) {
   return name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase();
 }
-const base = import.meta.env.BASE_URL;
-const imgSrc = (path: string) => path ? base + path.slice(1) : '';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const imgSrc = (path: string) => path ? base + path : '';
 ---
 
 <section id="leadership" class="py-24 px-6 bg-[#fff8f4]">

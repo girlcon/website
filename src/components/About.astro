@@ -9,7 +9,7 @@
     <div class="fade-up">
       <div class="relative">
         <img
-          src={`${import.meta.env.BASE_URL}images/about-event.jpg`}
+          src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/images/about-event.jpg`}
           alt="Attendees at a GirlCon event"
           class="w-full rounded-2xl object-cover aspect-[4/3] shadow-xl shadow-purple-200/40"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
