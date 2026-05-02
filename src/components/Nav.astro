@@ -1,13 +1,14 @@
 ---
+const base = import.meta.env.BASE_URL;
 const path = Astro.url.pathname;
 
 const navLinks = [
-  { label: "About", href: "/#about" },
-  { label: "Sponsors", href: "/#sponsors" },
-  { label: "Leadership", href: "/#leadership" },
-  { label: "Past Events", href: "/#past-events" },
-  { label: "FAQs", href: "/#faqs" },
-  { label: "Contact", href: "/#contact" },
+  { label: "About", href: `${base}#about` },
+  { label: "Sponsors", href: `${base}#sponsors` },
+  { label: "Leadership", href: `${base}#leadership` },
+  { label: "Past Events", href: `${base}#past-events` },
+  { label: "FAQs", href: `${base}#faqs` },
+  { label: "Contact", href: `${base}#contact` },
 ];
 ---
 
@@ -19,7 +20,7 @@ const navLinks = [
 
     <!-- Wordmark -->
     <a
-      href="/"
+      href={base}
       class="font-['Open_Sauce_Sans'] text-xl font-bold text-[#6b4fa0] tracking-tight hover:text-[#3d2466] transition-colors"
     >
       GirlCon
@@ -28,7 +29,7 @@ const navLinks = [
     <!-- Desktop links -->
     <ul class="hidden md:flex items-center gap-7 text-sm font-medium text-[#1a1225]">
 
-      <li><a href="/#about" class="hover:text-[#a180be] transition-colors">About</a></li>
+      <li><a href={`${base}#about`} class="hover:text-[#a180be] transition-colors">About</a></li>
 
       <!-- Conferences dropdown -->
       <li class="relative group">
@@ -46,15 +47,15 @@ const navLinks = [
           class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-44 bg-white rounded-xl shadow-lg shadow-purple-900/10 border border-purple-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-1 group-hover:translate-y-0"
         >
           <a
-            href="/chicago"
+            href={`${base}chicago`}
             class="block px-4 py-3 text-sm hover:bg-[#fff8f4] hover:text-[#6b4fa0] transition-colors rounded-t-xl"
           >GirlCon Chicago</a>
           <a
-            href="/virtual"
+            href={`${base}virtual`}
             class="block px-4 py-3 text-sm hover:bg-[#fff8f4] hover:text-[#6b4fa0] transition-colors border-t border-purple-50"
           >GirlCon Virtual</a>
           <a
-            href="/chapters"
+            href={`${base}chapters`}
             class="block px-4 py-3 text-sm hover:bg-[#fff8f4] hover:text-[#6b4fa0] transition-colors rounded-b-xl border-t border-purple-50"
           >GirlCon Chapters</a>
         </div>
@@ -102,18 +103,18 @@ const navLinks = [
     class="md:hidden hidden bg-white/95 backdrop-blur-md border-t border-purple-100"
   >
     <ul class="flex flex-col py-4 px-6 gap-1 text-sm font-medium">
-      <li><a href="/#about" class="block py-2 hover:text-[#a180be] transition-colors">About</a></li>
+      <li><a href={`${base}#about`} class="block py-2 hover:text-[#a180be] transition-colors">About</a></li>
       <li class="py-1">
         <span class="text-xs uppercase tracking-widest text-[#7c6f8a] font-semibold">Conferences</span>
-        <a href="/chicago" class="block py-2 pl-3 hover:text-[#a180be] transition-colors">GirlCon Chicago</a>
-        <a href="/virtual" class="block py-2 pl-3 hover:text-[#a180be] transition-colors">GirlCon Virtual</a>
-        <a href="/chapters" class="block py-2 pl-3 hover:text-[#a180be] transition-colors">GirlCon Chapters</a>
+        <a href={`${base}chicago`} class="block py-2 pl-3 hover:text-[#a180be] transition-colors">GirlCon Chicago</a>
+        <a href={`${base}virtual`} class="block py-2 pl-3 hover:text-[#a180be] transition-colors">GirlCon Virtual</a>
+        <a href={`${base}chapters`} class="block py-2 pl-3 hover:text-[#a180be] transition-colors">GirlCon Chapters</a>
       </li>
-      <li><a href="/#sponsors" class="block py-2 hover:text-[#a180be] transition-colors">Sponsors</a></li>
-      <li><a href="/#leadership" class="block py-2 hover:text-[#a180be] transition-colors">Leadership</a></li>
-      <li><a href="/#past-events" class="block py-2 hover:text-[#a180be] transition-colors">Past Events</a></li>
-      <li><a href="/#faqs" class="block py-2 hover:text-[#a180be] transition-colors">FAQs</a></li>
-      <li><a href="/#contact" class="block py-2 hover:text-[#a180be] transition-colors">Contact</a></li>
+      <li><a href={`${base}#sponsors`} class="block py-2 hover:text-[#a180be] transition-colors">Sponsors</a></li>
+      <li><a href={`${base}#leadership`} class="block py-2 hover:text-[#a180be] transition-colors">Leadership</a></li>
+      <li><a href={`${base}#past-events`} class="block py-2 hover:text-[#a180be] transition-colors">Past Events</a></li>
+      <li><a href={`${base}#faqs`} class="block py-2 hover:text-[#a180be] transition-colors">FAQs</a></li>
+      <li><a href={`${base}#contact`} class="block py-2 hover:text-[#a180be] transition-colors">Contact</a></li>
       <li class="pt-2">
         <a href="https://venmo.com/u/girlcon-chicago" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-5 py-2 rounded-full bg-[#a180be] text-white font-medium hover:bg-[#6b4fa0] transition-colors">
           Donate

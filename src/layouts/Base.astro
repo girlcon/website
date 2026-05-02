@@ -11,6 +11,8 @@ const {
   title = "GirlCon — International Tech Conference for Womxn",
   description = "GirlCon is a student-led international tech conference empowering the next generation of womxn leaders through keynotes, workshops, and networking.",
 } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -22,18 +24,10 @@ const {
     <title>{title}</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${base}GC.svg`} />
 
     <!-- Open Sauce Sans (self-hosted) -->
-    <style>
-      @font-face {
-        font-family: 'Open Sauce Sans';
-        src: url('/fonts/open-sauce.sans-bold.ttf') format('truetype');
-        font-weight: 700;
-        font-style: normal;
-        font-display: swap;
-      }
-    </style>
+    <Fragment set:html={`<style>@font-face{font-family:'Open Sauce Sans';src:url('${base}fonts/open-sauce.sans-bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap;}</style>`} />
 
     <!-- Fonts: DM Sans (body) via Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
