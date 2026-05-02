@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Open Sauce Sans';
+  src: url('../assets/fonts/open-sauce.sans-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-cream: #fff8f4;
   --color-purple: #a180be;
