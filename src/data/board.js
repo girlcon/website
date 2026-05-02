@@ -40,9 +40,9 @@ export const gec = {
 
 // GirlCon Advisory Committee
 export const gac = [
-  { name: "Emma Lopez",         school: "Riverside Brookfield High School",         photo: "/images/board/emma-lopez.jpg" },
-  { name: "Carissa Chen",       school: "Illinois Mathematics and Science Academy", photo: "/images/board/carissa-chen.jpg" },
-  { name: "Zoe Mehta",          school: "Vernon Hills High School",                 photo: "/images/board/zoe-mehta.jpg" },
+  { name: "Emma Lopez",         school: "Stanford University",                     photo: "/images/board/emma-lopez.jpg" },
+  { name: "Carissa Chen",       school: "Harvard University",                       photo: "/images/board/carissa-chen.jpg" },
+  { name: "Zoe Mehta",          school: "Massachusetts Institute of Technology",    photo: "/images/board/zoe-mehta.jpg" },
   { name: "Riya Vijay",         school: "University of Nebraska–Lincoln",           photo: "/images/board/riya-vijay.jpg" },
   { name: "Mia Rubenstein",     school: "Washington University in St. Louis",       photo: "/images/board/mia-rubenstein.jpg" },
   { name: "Annie Duan",         school: "Jesuit High School",                       photo: "/images/board/annie-duan.jpg" },
