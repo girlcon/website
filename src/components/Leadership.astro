@@ -40,9 +40,9 @@ const imgSrc = (path: string) => path ? base + path : '';
       <!-- Co-Founders -->
       <div class="mb-16">
         <h3 class="text-center text-sm font-semibold tracking-widest uppercase text-[#7c6f8a] mb-8">Co-Founders</h3>
-        <div class="flex flex-wrap justify-center gap-8">
+        <div class="flex justify-center gap-4">
           {cofounders.map((person) => (
-            <div class="team-card bg-white rounded-2xl overflow-hidden w-56 shadow-sm border border-purple-50">
+            <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem]">
               <div class="overflow-hidden aspect-square">
                 <img
                   src={imgSrc(person.photo)}
@@ -55,9 +55,8 @@ const imgSrc = (path: string) => path ? base + path : '';
                   style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
                 >{initials(person.name)}</div>
               </div>
-              <div class="p-4 text-center">
+              <div class="px-4 pt-4 pb-6 text-center">
                 <p class="font-semibold text-[#1a1225]">{person.name}</p>
-                <p class="text-xs text-[#a180be] font-medium mt-0.5">{person.role}</p>
                 {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
               </div>
             </div>
@@ -76,9 +75,9 @@ const imgSrc = (path: string) => path ? base + path : '';
         <!-- Futures -->
         <div class="mb-10">
           <h4 class="text-center text-xs font-semibold tracking-widest uppercase text-[#a180be] mb-6">GirlCon Futures</h4>
-          <div class="flex flex-wrap justify-center gap-6">
+          <div class="flex flex-wrap justify-center gap-4 max-w-[752px] mx-auto">
             {gec.futures.map((person) => (
-              <div class="team-card bg-white rounded-2xl overflow-hidden w-48 shadow-sm border border-purple-50">
+              <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem]">
                 <div class="overflow-hidden aspect-square">
                   {person.photo ? (
                     <img
@@ -93,7 +92,7 @@ const imgSrc = (path: string) => path ? base + path : '';
                     style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
                   >{initials(person.name)}</div>
                 </div>
-                <div class="p-3 text-center">
+                <div class="px-3 pt-4 pb-5 text-center">
                   <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
                   {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
                 </div>
@@ -105,9 +104,9 @@ const imgSrc = (path: string) => path ? base + path : '';
         <!-- Chapters -->
         <div class="mb-10">
           <h4 class="text-center text-xs font-semibold tracking-widest uppercase text-[#a180be] mb-6">GirlCon Chapters</h4>
-          <div class="flex flex-wrap justify-center gap-6">
+          <div class="flex flex-wrap justify-center gap-4 max-w-[752px] mx-auto">
             {gec.chapters.map((person) => (
-              <div class="team-card bg-white rounded-2xl overflow-hidden w-48 shadow-sm border border-purple-50">
+              <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem]">
                 <div class="overflow-hidden aspect-square">
                   {person.photo ? (
                     <img
@@ -122,7 +121,7 @@ const imgSrc = (path: string) => path ? base + path : '';
                     style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
                   >{initials(person.name)}</div>
                 </div>
-                <div class="p-3 text-center">
+                <div class="px-3 pt-4 pb-5 text-center">
                   <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
                   {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
                 </div>
@@ -134,9 +133,9 @@ const imgSrc = (path: string) => path ? base + path : '';
         <!-- Internal -->
         <div>
           <h4 class="text-center text-xs font-semibold tracking-widest uppercase text-[#a180be] mb-6">GirlCon Internal</h4>
-          <div class="flex flex-wrap justify-center gap-6">
+          <div class="flex flex-wrap justify-center gap-4 max-w-[752px] mx-auto">
             {gec.internal.map((person) => (
-              <div class="team-card bg-white rounded-2xl overflow-hidden w-48 shadow-sm border border-purple-50">
+              <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem]">
                 <div class="overflow-hidden aspect-square">
                   {person.photo ? (
                     <img
@@ -151,7 +150,7 @@ const imgSrc = (path: string) => path ? base + path : '';
                     style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
                   >{initials(person.name)}</div>
                 </div>
-                <div class="p-3 text-center">
+                <div class="px-3 pt-4 pb-5 text-center">
                   <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
                   {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
                 </div>
@@ -169,32 +168,30 @@ const imgSrc = (path: string) => path ? base + path : '';
           </span>
         </div>
 
-          {[gac.slice(0, 4), gac.slice(4)].map((row) => (
-            <div class="flex justify-center gap-6 mb-6 last:mb-0">
-              {row.map((person) => (
-                <div class="team-card bg-white rounded-2xl overflow-hidden w-48 shadow-sm border border-purple-50">
-                  <div class="overflow-hidden aspect-square">
-                    {person.photo ? (
-                      <img
-                        src={imgSrc(person.photo)}
-                        alt={person.name}
-                        class="team-photo w-full h-full object-cover object-top"
-                        onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
-                      />
-                    ) : null}
-                    <div
-                      class={`w-full h-full ${person.photo ? 'hidden' : 'flex'} items-center justify-center text-2xl font-bold text-[#6b4fa0]`}
-                      style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
-                    >{initials(person.name)}</div>
-                  </div>
-                  <div class="p-3 text-center">
-                    <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
-                    {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
-                  </div>
+          <div class="flex flex-wrap justify-center gap-4 max-w-[752px] mx-auto">
+            {gac.map((person) => (
+              <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem]">
+                <div class="overflow-hidden aspect-square">
+                  {person.photo ? (
+                    <img
+                      src={imgSrc(person.photo)}
+                      alt={person.name}
+                      class="team-photo w-full h-full object-cover object-top"
+                      onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
+                    />
+                  ) : null}
+                  <div
+                    class={`w-full h-full ${person.photo ? 'hidden' : 'flex'} items-center justify-center text-2xl font-bold text-[#6b4fa0]`}
+                    style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
+                  >{initials(person.name)}</div>
                 </div>
-              ))}
-            </div>
-          ))}
+                <div class="px-3 pt-4 pb-5 text-center">
+                  <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
+                  {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
+                </div>
+              </div>
+            ))}
+          </div>
       </div>
 
     </div>
@@ -206,31 +203,29 @@ const imgSrc = (path: string) => path ? base + path : '';
           Meet the Co-Directors, Senior VPs, and team heads making GirlCon happen — by highschoolers, for highschoolers.
         </p>
       </div>
-      {[coreTeam.slice(0, 4), coreTeam.slice(4, 8), coreTeam.slice(8)].map((row) => (
-        <div class="flex justify-center gap-6 mb-6 last:mb-0">
-          {row.map((person) => (
-            <div class="team-card bg-white rounded-2xl overflow-hidden w-48 shadow-sm border border-purple-50">
-              <div class="overflow-hidden aspect-square">
-                <img
-                  src={imgSrc(person.photo)}
-                  alt={person.name}
-                  class="team-photo w-full h-full object-cover object-top"
-                  onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
-                />
-                <div
-                  class="w-full h-full hidden items-center justify-center text-2xl font-bold text-[#6b4fa0]"
-                  style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
-                >{initials(person.name)}</div>
-              </div>
-              <div class="p-4 text-center">
-                <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
-                <p class="text-xs text-[#a180be] font-medium mt-0.5">{person.role}</p>
-                {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
-              </div>
+      <div class="flex flex-wrap justify-center gap-4 max-w-[752px] mx-auto">
+        {coreTeam.map((person) => (
+          <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem]">
+            <div class="overflow-hidden aspect-square">
+              <img
+                src={imgSrc(person.photo)}
+                alt={person.name}
+                class="team-photo w-full h-full object-cover object-top"
+                onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
+              />
+              <div
+                class="w-full h-full hidden items-center justify-center text-2xl font-bold text-[#6b4fa0]"
+                style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
+              >{initials(person.name)}</div>
             </div>
-          ))}
-        </div>
-      ))}
+            <div class="px-4 pt-4 pb-6 text-center">
+              <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
+              <p class="text-xs text-[#a180be] font-medium mt-0.5">{person.role}</p>
+              {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
 
   </div>
