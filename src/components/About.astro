@@ -1,5 +1,5 @@
 ---
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section id="about" class="py-24 px-6 bg-[#fff8f4]">
@@ -51,13 +51,13 @@ const base = import.meta.env.BASE_URL;
 
       <div class="mt-8 flex gap-4">
         <a
-          href={`${base}chicago`}
+          href={`${base}/chicago`}
           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#a180be] text-white text-sm font-medium hover:bg-[#6b4fa0] transition-colors"
         >
           GirlCon Chicago →
         </a>
         <a
-          href={`${base}virtual`}
+          href={`${base}/virtual`}
           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#a180be] text-[#6b4fa0] text-sm font-medium hover:bg-[#a180be] hover:text-white transition-colors"
         >
           GirlCon Virtual →

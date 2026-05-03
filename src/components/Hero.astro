@@ -1,5 +1,5 @@
 ---
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section
@@ -53,13 +53,13 @@ const base = import.meta.env.BASE_URL;
     <!-- CTAs -->
     <div class="flex flex-wrap gap-4 justify-center fade-up" style="transition-delay: 0.3s;">
       <a
-        href={`${base}#about`}
+        href={`${base}/#about`}
         class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#a180be] text-white font-medium hover:bg-[#6b4fa0] transition-colors shadow-lg shadow-purple-300/30"
       >
         Explore GirlCon
       </a>
       <a
-        href={`${base}#contact`}
+        href={`${base}/#contact`}
         class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#a180be] text-[#6b4fa0] font-medium hover:bg-[#a180be] hover:text-white transition-colors"
       >
         Get Involved
