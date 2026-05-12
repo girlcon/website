@@ -35,6 +35,12 @@ const doubled1 = [...photosRow1, ...photosRow1];
 const doubled2 = [...photosRow2, ...photosRow2];
 
 const years = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+
+const themeLogos = years.map((year) => ({
+  year,
+  src: `${base}/images/themes/${year}.png`,
+  alt: `GirlCon ${year} theme logo`,
+}));
 ---
 
 <section id="past-events" class="py-24 bg-white overflow-hidden">
@@ -50,6 +56,20 @@ const years = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
           <span>{y}{i < years.length - 1 ? ', ' : ''}</span>
         ))} possible. We couldn't have done it without you.
       </p>
+    </div>
+  </div>
+
+  <!-- Theme logos strip -->
+  <div class="max-w-5xl mx-auto px-6 mb-12 fade-up" style="transition-delay: 0.1s;">
+    <div class="flex flex-wrap justify-center items-center gap-5">
+      {themeLogos.map((logo) => (
+        <img
+          src={logo.src}
+          alt={logo.alt}
+          class="h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+          loading="lazy"
+        />
+      ))}
     </div>
   </div>
 
