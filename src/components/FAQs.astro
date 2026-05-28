@@ -34,8 +34,8 @@ import { faqs } from '../data/faqs.js';
               <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </summary>
-          <div class="px-6 pb-5 pt-1 text-[#7c6f8a] leading-relaxed text-sm md:text-base border-t border-purple-50">
-            {faq.answer}
+          <div class="px-6 pb-5 pt-1 text-[#7c6f8a] leading-relaxed text-sm md:text-base border-t border-purple-50 [&_a]:text-[#6b4fa0] [&_a]:underline [&_a:hover]:text-[#3d2466]">
+            <span set:html={faq.answer} />
           </div>
         </details>
       ))}
