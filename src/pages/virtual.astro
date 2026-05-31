@@ -1,6 +1,35 @@
 ---
 import Base from '../layouts/Base.astro';
 import Contact from '../components/Contact.astro';
+import { virtualKeynotes, virtualTechSessions, virtualProfDevSessions } from '../data/virtual-speakers.js';
+
+function initials(name) {
+  return name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase();
+}
+
+const allModalSpeakers = [
+  ...virtualKeynotes.map((s, i) => ({
+    id: `k${i}`,
+    name: s.name,
+    title: s.title,
+    bio: s.bio,
+    photo: s.photo,
+  })),
+  ...virtualTechSessions.map((s, i) => s.bio ? {
+    id: `t${i}`,
+    name: s.speakerName,
+    title: s.speakerTitle,
+    bio: s.bio,
+    photo: s.photo,
+  } : null).filter(Boolean),
+  ...virtualProfDevSessions.map((s, i) => s.bio ? {
+    id: `p${i}`,
+    name: s.speakerName,
+    title: s.speakerTitle,
+    bio: s.bio,
+    photo: s.photo,
+  } : null).filter(Boolean),
+];
 ---
 
 <Base
@@ -71,36 +100,187 @@ import Contact from '../components/Contact.astro';
     </div>
   </section>
 
-  <!-- Speakers placeholder -->
+  <!-- Speakers -->
   <section class="py-20 px-6 bg-[#fff8f4]">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="font-['Open_Sauce_Sans'] text-3xl md:text-4xl font-bold text-[#1a1225] mb-4">Speakers</h2>
-      <p class="text-[#7c6f8a] max-w-md mx-auto mb-10">
-        2026 speaker announcements coming soon. Follow us on Instagram @girlcontech to stay updated!
-      </p>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        {Array(4).fill(null).map((_, i) => (
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50">
-            <div
-              class="aspect-square flex items-center justify-center text-3xl"
-              style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
-            >?</div>
-            <div class="p-3 text-center">
-              <p class="text-sm font-semibold text-[#7c6f8a]">Speaker TBA</p>
-            </div>
-          </div>
-        ))}
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="font-['Open_Sauce_Sans'] text-3xl md:text-4xl font-bold text-[#1a1225]">Speakers</h2>
+      </div>
+
+      <!-- Keynotes -->
+      <div class="mb-16">
+        <div class="text-center mb-10">
+          <span class="inline-block bg-[#ede4f7] text-[#6b4fa0] text-xs font-bold tracking-[0.12em] uppercase px-5 py-2 rounded-full">
+            🎤 Keynotes
+          </span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6">
+          {virtualKeynotes.map((speaker, i) => (
+            <button
+              class="speaker-card flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-12px)] md:w-52 text-left cursor-pointer hover:shadow-md hover:border-purple-200 transition-all"
+              data-speaker-id={`k${i}`}
+            >
+              <div class="overflow-hidden aspect-square shrink-0">
+                {speaker.photo
+                  ? <img src={speaker.photo} alt={speaker.name} class="w-full h-full object-cover object-top" />
+                  : <div class="w-full h-full flex items-center justify-center text-3xl font-bold text-[#6b4fa0]" style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);">{initials(speaker.name)}</div>
+                }
+              </div>
+              <div class="flex flex-col flex-1 px-4 pt-4 pb-5 text-center">
+                <p class="font-semibold text-[#1a1225] text-sm">{speaker.name}</p>
+                <p class="text-xs text-[#a180be] font-medium mt-1 leading-snug">{speaker.title}</p>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Tech+ Sessions -->
+      <div class="mb-16">
+        <div class="text-center mb-10">
+          <span class="inline-block bg-[#ede4f7] text-[#6b4fa0] text-xs font-bold tracking-[0.12em] uppercase px-5 py-2 rounded-full">
+            💻 Tech+ Sessions
+          </span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6">
+          {virtualTechSessions.map((speaker, i) => (
+            speaker.bio ? (
+              <button
+                class="speaker-card flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-12px)] md:w-52 text-left cursor-pointer hover:shadow-md hover:border-purple-200 transition-all"
+                data-speaker-id={`t${i}`}
+              >
+                <div class="aspect-square overflow-hidden shrink-0">
+                  {speaker.photo
+                    ? <img src={speaker.photo} alt={speaker.speakerName} class="w-full h-full object-cover object-center" />
+                    : <div class="w-full h-full flex items-center justify-center text-2xl font-bold text-[#6b4fa0]" style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);">{initials(speaker.speakerName)}</div>
+                  }
+                </div>
+                <div class="flex flex-col flex-1 px-4 pt-3 pb-4 text-center">
+                  <p class="font-bold text-sm text-[#1a1225] leading-snug">{speaker.speakerName}</p>
+                  <p class="text-xs text-[#a180be] font-medium mt-1 leading-snug">{speaker.sessionTitle}</p>
+                </div>
+              </button>
+            ) : (
+              <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-12px)] md:w-52">
+                <div class="aspect-square shrink-0 flex items-center justify-center" style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);">
+                  <span class="text-2xl font-bold text-[#6b4fa0]">{initials(speaker.speakerName)}</span>
+                </div>
+                <div class="flex flex-col flex-1 px-4 pt-3 pb-4 text-center">
+                  <p class="font-bold text-sm text-[#1a1225] leading-snug">{speaker.speakerName}</p>
+                  <p class="text-xs text-[#a180be] font-medium mt-1 leading-snug">{speaker.sessionTitle}</p>
+                </div>
+              </div>
+            )
+          ))}
+        </div>
+      </div>
+
+      <!-- Professional Development -->
+      <div>
+        <div class="text-center mb-10">
+          <span class="inline-block bg-[#ede4f7] text-[#6b4fa0] text-xs font-bold tracking-[0.12em] uppercase px-5 py-2 rounded-full">
+            💼 Professional Development
+          </span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6">
+          {virtualProfDevSessions.map((speaker, i) => (
+            speaker.bio ? (
+              <button
+                class="speaker-card flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-12px)] md:w-52 text-left cursor-pointer hover:shadow-md hover:border-purple-200 transition-all"
+                data-speaker-id={`p${i}`}
+              >
+                <div class="aspect-square overflow-hidden shrink-0">
+                  {speaker.photo
+                    ? <img src={speaker.photo} alt={speaker.speakerName} class="w-full h-full object-cover object-center" />
+                    : <div class="w-full h-full flex items-center justify-center text-2xl font-bold text-[#6b4fa0]" style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);">{initials(speaker.speakerName)}</div>
+                  }
+                </div>
+                <div class="flex flex-col flex-1 px-4 pt-3 pb-4 text-center">
+                  <p class="font-bold text-sm text-[#1a1225] leading-snug">{speaker.speakerName}</p>
+                  <p class="text-xs text-[#a180be] font-medium mt-1 leading-snug">{speaker.sessionTitle}</p>
+                </div>
+              </button>
+            ) : (
+              <div class="flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-12px)] md:w-52">
+                <div class="aspect-square shrink-0 flex items-center justify-center" style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);">
+                  <span class="text-2xl font-bold text-[#6b4fa0]">{initials(speaker.speakerName)}</span>
+                </div>
+                <div class="flex flex-col flex-1 px-4 pt-3 pb-4 text-center">
+                  <p class="font-bold text-sm text-[#1a1225] leading-snug">{speaker.speakerName}</p>
+                  <p class="text-xs text-[#a180be] font-medium mt-1 leading-snug">{speaker.sessionTitle}</p>
+                </div>
+              </div>
+            )
+          ))}
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Sessions placeholder -->
-  <section class="py-20 px-6 bg-white">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="font-['Open_Sauce_Sans'] text-3xl md:text-4xl font-bold text-[#1a1225] mb-4">Sessions</h2>
-      <p class="text-[#7c6f8a]">The full 2026 session list will be posted here once confirmed.</p>
+  <!-- Speaker Bio Modal -->
+  <div id="speaker-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-200" style="background: rgba(26,18,37,0.6); backdrop-filter: blur(4px);">
+    <div id="modal-panel" class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative scale-95 transition-transform duration-200">
+      <button id="modal-close" class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-[#f3ecf8] text-[#6b4fa0] hover:bg-[#ede4f7] transition-colors text-xl font-bold z-10" aria-label="Close">×</button>
+      <div class="flex flex-col sm:flex-row gap-6 p-8 pb-4">
+        <div id="modal-photo" class="shrink-0 w-full sm:w-36 h-48 sm:h-36 rounded-2xl overflow-hidden"></div>
+        <div class="flex flex-col justify-center">
+          <p id="modal-name" class="font-['Open_Sauce_Sans'] text-2xl font-bold text-[#1a1225]"></p>
+          <p id="modal-title" class="text-[#a180be] font-medium mt-1 text-sm"></p>
+        </div>
+      </div>
+      <p id="modal-bio" class="px-8 pb-8 pt-2 text-[#7c6f8a] leading-relaxed text-sm"></p>
     </div>
-  </section>
+  </div>
+
+  <script define:vars={{ speakers: allModalSpeakers }}>
+    const speakerMap = {};
+    speakers.forEach((s) => { speakerMap[s.id] = s; });
+
+    const modal = document.getElementById('speaker-modal');
+    const modalPanel = document.getElementById('modal-panel');
+    const modalClose = document.getElementById('modal-close');
+    const modalName = document.getElementById('modal-name');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBio = document.getElementById('modal-bio');
+    const modalPhoto = document.getElementById('modal-photo');
+
+    function initials(name) {
+      return name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase();
+    }
+
+    function openModal(speaker) {
+      modalName.textContent = speaker.name;
+      modalTitle.textContent = speaker.title;
+      modalBio.innerHTML = speaker.bio.split('\n\n').map(p => `<p class="mb-3 last:mb-0">${p}</p>`).join('');
+      modalPhoto.innerHTML = speaker.photo
+        ? `<img src="${speaker.photo}" alt="${speaker.name}" class="w-full h-full object-cover object-top" />`
+        : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;color:#6b4fa0;background:linear-gradient(135deg,#f3ecf8 0%,#e0cff0 100%);">${initials(speaker.name)}</div>`;
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100');
+      modalPanel.classList.remove('scale-95');
+      modalPanel.classList.add('scale-100');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.classList.remove('opacity-100');
+      modalPanel.classList.add('scale-95');
+      modalPanel.classList.remove('scale-100');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-speaker-id]').forEach((card) => {
+      card.addEventListener('click', () => {
+        const speaker = speakerMap[card.dataset.speakerId];
+        if (speaker) openModal(speaker);
+      });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+  </script>
 
   <Contact />
 </Base>
