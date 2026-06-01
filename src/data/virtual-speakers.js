@@ -4,7 +4,7 @@ export const virtualKeynotes = [
     title: "Chief Experience Officer, Keynote Speaker & Executive Coach",
     sessionTitle: "Keynote",
     photo: "/images/speakers/jennifer-pestikas.jpg",
-    bio: "Bio coming soon!",
+    bio: "Jennifer Pestikas is an international keynote speaker and executive coach specializing in mid-career women's leadership. With over 20 years navigating male-dominated industries, she helps female professionals overcome imposter syndrome, speak up confidently, and lead without burning out. A 4-time Amazon bestselling author with 9 books and 250+ podcast episodes, Jennifer brings her signature BRAVE framework to stages across financial services, healthcare, tech, and beyond — equipping women with practical tools they can put to work immediately.",
     links: [
       { type: "linkedin", url: "https://www.linkedin.com/in/jenniferpestikas/" },
       { type: "website", url: "https://jenniferpestikas.com/" },
@@ -15,7 +15,7 @@ export const virtualKeynotes = [
     title: "Cybersecurity Specialist, Keynote Speaker & Author",
     sessionTitle: "Keynote",
     photo: "/images/speakers/lisa-ventura.jpg",
-    bio: "Bio coming soon!",
+    bio: "Lisa Ventura MBE is an award-winning cybersecurity specialist, keynote speaker, and founder of Cyber Security Unity — a global community dedicated to uniting cybersecurity professionals. She was awarded an MBE by King Charles III in 2023 for services to cybersecurity and diversity and inclusion.\n\nWith expertise spanning AI, social engineering, cyber psychology, and neurodiversity advocacy, Lisa is a passionate champion for representation in tech. She has been recognized as Cyber Security Woman of the Year and named among the most inspiring women in cybersecurity.",
     links: [
       { type: "website", url: "https://lisaventura.co.uk/about-lisa-ventura/" },
       { type: "linkedin", url: "https://www.linkedin.com/in/lisasventura/" },
@@ -61,8 +61,8 @@ export const virtualTechSessions = [
     sessionTitle: "Tech + Healthcare",
     speakerName: "Marzeah Khorramabadi",
     speakerTitle: "Co-Founder, StrideLink",
-    photo: null,
-    bio: "Bio coming soon!",
+    photo: "/images/speakers/marzeah-khorramabadi.jpg",
+    bio: "I'm the founder of StrideLink, where we help healthcare providers and patients better understand recovery through gait measurement. By tracking how patients walk, StrideLink makes it possible to monitor progress, detect issues early, and give both patients and clinicians confidence in treatment.\n\nThe company grew out of my time studying Computer Engineering at Georgia Tech and the Create-X program, where I developed a passion for turning sensor technology into tools with real-world healthcare impact. My background growing up in a family business also shaped how I approach entrepreneurship with persistence and a focus on building things that last.\n\nOutside of work, you'll usually find me outdoors — horseback riding, running, biking, or golfing. Staying active reminds me why StrideLink's mission matters: movement isn't just biomechanics, it's independence, health, and quality of life.",
     links: [
       { type: "linkedin", url: "https://www.linkedin.com/in/marzeah-zea-khorramabadi-396956157/" },
     ],
@@ -80,9 +80,9 @@ export const virtualTechSessions = [
   {
     sessionTitle: "Tech + Writing",
     speakerName: "Alana Karen",
-    speakerTitle: "Author",
-    photo: null,
-    bio: "Bio coming soon!",
+    speakerTitle: "Author & Tech Leader",
+    photo: "/images/speakers/alana-karen.jpg",
+    bio: "Alana Karen is an award-winning tech leader, author, and speaker. With over 25 years in tech, including over two decades at Google, Alana led the charge to develop, scale, build, and drive team and product development, impacting billions of users globally.\n\nAlana has spoken at conferences and summits on technology, leadership, talent, and innovation.\n\nHer best-selling book, \"Adventures of Women in Tech\" has received awards and been praised for its insightful stories. A second edition will launch in Fall 2025, and a follow-up workbook was released in 2022.\n\nShe lives in the San Francisco Bay Area with her family.",
     links: [
       { type: "linkedin", url: "https://www.linkedin.com/in/alanakaren/" },
       { type: "website", url: "https://www.alanakaren.com/" },
@@ -97,7 +97,7 @@ export const virtualProfDevSessions = [
     speakerName: "Yalonda Brown",
     speakerTitle: "President & CEO, Just Say It LLC",
     photo: "/images/speakers/yalonda-brown.jpg",
-    bio: "Bio coming soon!",
+    bio: "Yalonda Brown is a visionary leader, speaker, and inclusion strategist with more than two decades of experience bridging the private and public sectors. Known for her intuitive leadership and heart-centered approach, she empowers others to lead with authenticity and purpose. Yalonda holds a Master of Science in Organizational Leadership and is a Certified Child and Youth Care Practitioner.\n\nIn her nonprofit role, she champions the professional growth and well-being of Indiana's youth workers, cultivating partnerships that strengthen communities and amplify impact. As CEO of Just Say It, LLC, Yalonda facilitates courageous conversations that advance inclusive leadership and belonging. An accomplished author and speaker, her insights have been featured in SHRM, DiversityQ, and Diversity Professional Magazine.\n\nDeeply committed to advancing women and girls, Yalonda actively serves on several boards. Now residing in Maricopa, Arizona with her husband Vincent, she continues to use her platform to inspire resilience, confidence, and purpose in every space she enters.",
     links: [
       { type: "linkedin", url: "https://www.linkedin.com/in/yalonda-brown-msol-cyc-p-315bb723/" },
     ],
