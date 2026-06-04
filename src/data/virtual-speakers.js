@@ -106,9 +106,9 @@ export const virtualProfDevSessions = [
   {
     sessionTitle: "LinkedIn & Recruiting",
     speakerName: "Krystal Cano",
-    speakerTitle: "Senior Technical Recruiter & AI Career Educator",
+    speakerTitle: "AI Talent Strategist & Founder, Limitless AI Career Strategists",
     photo: "/images/speakers/krystal-cano.jpg",
-    bio: "Krystal Cano is a Senior Technical Recruiter with experience at TikTok, Amazon, and Twitter. A graduate of MIT's AI/ML program and founder of Limitless AI, Krystal is a recognized AI career educator and talent strategist helping professionals navigate the future of tech hiring. She serves on the advisory board of Votal AI and is dedicated to empowering the next generation of women in tech.",
+    bio: "Krystal Cano is an AI Talent Strategist and Founder of Limitless AI Career Strategists, where she helps professionals reskill, pivot, and upskill in the rapidly evolving AI-driven workforce.\n\nWith 11+ years of experience recruiting and scaling global teams at TikTok, Twitter, Twitch (Amazon), DoorDash, and Playco (Sequoia Capital), Krystal specializes in AI, Machine Learning, Data Science, Backend Engineering, and Cloud Infrastructure hiring.\n\nShe is currently completing MIT's in-person AI, Machine Learning & Robotics program in Cambridge, MA. She serves on the advisory board of agentic AI startup Votal.ai in Palo Alto, CA. As a first-generation Latina in tech, Krystal is passionate about helping the next generation of leaders build resilient careers in the AI economy.",
     links: [
       { type: "linkedin", url: "https://www.linkedin.com/in/krystal-cano/" },
       { type: "instagram", url: "https://www.instagram.com/krystalcano/" },
