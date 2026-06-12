@@ -69,6 +69,17 @@ export const virtualTechSessions = [
     isOnPanel: false,
   },
   {
+    sessionTitle: "Tech + Law",
+    speakerName: "Leslee Cohen",
+    speakerTitle: "Founder, AllRise Legal Counsel",
+    photo: "/images/speakers/leslee-cohen.jpg",
+    bio: "After attending the University of Michigan and NYU Law School, Leslee Cohen started her career doing IPOs and mergers and acquisitions and general contract law at a Wall Street firm and then a large Chicago law firm. After 20 years in \"Big Law\" she left to form AllRise Legal Counsel in 2010, to focus on representing technology startups. The name \"AllRise\" represents Leslee's dedication to helping women and startups rise together!",
+    links: [
+      { type: "linkedin", url: "https://www.linkedin.com/in/leslee-cohen/" },
+    ],
+    isOnPanel: false,
+  },
+  {
     sessionTitle: "Tech + Dance",
     speakerName: "STEM From Dance",
     speakerTitle: "Tech organization at the intersection of arts and STEM",
