@@ -99,6 +99,27 @@ export const chicagoTechSessions = [
     ],
     isOnPanel: false,
   },
+  {
+    sessionTitle: "Tech + Cooking",
+    speakerName: "Jessica White",
+    speakerTitle: "Title coming soon!",
+    photo: null,
+    bio: "Bio coming soon!",
+    links: [],
+    isOnPanel: false,
+  },
+  {
+    sessionTitle: "Tech + Machine Learning",
+    speakerName: "Dr. Pushpa Bhat",
+    speakerTitle: "Distinguished Scientist, Fermilab",
+    photo: "/images/speakers/pushpa-bhat.jpg",
+    bio: "Dr. Pushpa Bhat is a Distinguished Scientist at Fermilab specializing in high-energy experimental particle physics. She played key roles in the discoveries of the top quark at Fermilab and the Higgs boson at CERN, and pioneered the use of machine learning in collider physics beginning in 1990. Her current research focuses on Higgs physics, searches for new physics, machine learning, and future colliders. Dr. Bhat has held leadership roles with the American Physical Society (APS), the American Association for the Advancement of Science (AAAS), and the International Committee on Future Accelerators (ICFA), and is an elected Fellow of the APS and the AAAS. She is also active in engaging the broader scientific community, policymakers, and the public on the future of science and technology.",
+    links: [
+      { type: "website", url: "https://cms.fnal.gov/pushpalatha-pushpa-bhat/" },
+      { type: "linkedin", url: "https://www.linkedin.com/in/pushpalatha-bhat-ab692a25/" },
+    ],
+    isOnPanel: false,
+  },
 ];
 
 export const chicagoProfDevSessions = [
