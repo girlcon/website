@@ -76,6 +76,18 @@ export const chicagoTechSessions = [
     isOnPanel: false,
   },
   {
+    sessionTitle: "Tech + Mental Health",
+    speakerName: "Sravya Kuchibhotla",
+    speakerTitle: "MD Candidate, Stanford University",
+    photo: "/images/speakers/sravya-kuchibhotla.jpg",
+    photoPosition: "object-center",
+    bio: "Sravya Kuchibhotla is a medical student at Stanford University pursuing a career at the intersection of medicine, technology, and innovation. Originally from Cary, North Carolina, she studied Neuroscience and Economics at Harvard University before beginning medical school. Throughout her career, Sravya has worked on projects spanning artificial intelligence, global health, healthcare innovation, and clinical research, with a particular interest in using technology to improve patient care. She is passionate about empowering young women to pursue ambitious goals in STEM and believes that meaningful impact comes from combining curiosity, resilience, and a willingness to explore unconventional paths.",
+    links: [
+      { type: "linkedin", url: "https://www.linkedin.com/in/sravya-kuchibhotla/" },
+    ],
+    isOnPanel: false,
+  },
+  {
     sessionTitle: "Tech + Robotics",
     speakerName: "Ankush Dhawan",
     speakerTitle: "Hands on Robotics",
