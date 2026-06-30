@@ -34,7 +34,7 @@ const photosRow2 = [
 const doubled1 = [...photosRow1, ...photosRow1];
 const doubled2 = [...photosRow2, ...photosRow2];
 
-const years = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+const years = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
 
 const themeLogos = years.map((year) => ({
   year,
@@ -53,7 +53,7 @@ const themeLogos = years.map((year) => ({
       <p class="text-[#7c6f8a] max-w-lg mx-auto">
         Thank you to everyone who helped make GirlCon
         {years.map((y, i) => (
-          <span>{y}{i < years.length - 1 ? ', ' : ''}</span>
+          <span>{i === years.length - 1 ? 'and ' : ''}{y}{i < years.length - 1 ? ', ' : ''}</span>
         ))} possible. We couldn't have done it without you.
       </p>
     </div>

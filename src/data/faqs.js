@@ -9,7 +9,7 @@ export const faqs = [
   {
     question: "When is this event taking place and how can I sign up?",
     answer:
-      `GirlCon 2026 has two events: GirlCon Virtual on June 25–26 (online) and GirlCon Chicago on June 27 at RSM HQ in Chicago. Registration is open now — <a href="https://www.eventbrite.com/e/girlcon-2026-virtual-tickets-1990421786143" target="_blank" rel="noopener noreferrer">register for GirlCon Virtual</a> or <a href="https://www.eventbrite.com/e/girlcon-2026-tickets-1989781007557" target="_blank" rel="noopener noreferrer">register for GirlCon Chicago</a>.`,
+      "GirlCon has two events: GirlCon Virtual (online) and GirlCon Chicago (in-person). Join our email list below and stay tuned to our website and Instagram for updates on upcoming events!",
   },
   {
     question: "What should I bring to online sessions?",
