@@ -1,38 +1,14 @@
 ---
 // Past Events infinite photo marquee — two rows, opposite directions.
-// Row 1 scrolls left, row 2 scrolls right.
-// Add real photo filenames to each array below.
-// Images go in: public/images/events/
+// Photos are shuffled randomly on each page load via client-side JS.
+// To add new photos: drop them in public/images/events/ and update the count below.
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const photosRow1 = [
-  { src: `${base}/images/events/event-01.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-02.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-03.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-04.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-05.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-06.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-07.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-08.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-09.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-10.jpg`, alt: "GirlCon event photo" },
-];
 
-const photosRow2 = [
-  { src: `${base}/images/events/event-11.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-12.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-13.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-14.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-15.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-16.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-17.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-18.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-19.jpg`, alt: "GirlCon event photo" },
-  { src: `${base}/images/events/event-20.jpg`, alt: "GirlCon event photo" },
-];
-
-// Duplicate each row for seamless infinite loop
-const doubled1 = [...photosRow1, ...photosRow1];
-const doubled2 = [...photosRow2, ...photosRow2];
+const photoCount = 25;
+const allPhotos = Array.from({ length: photoCount }, (_, i) => ({
+  src: `${base}/images/events/event-${String(i + 1).padStart(2, '0')}.jpg`,
+  alt: "GirlCon event photo",
+}));
 
 const years = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
 
@@ -73,45 +49,68 @@ const themeLogos = years.map((year) => ({
     </div>
   </div>
 
-  <!-- Row 1: scrolls left -->
+  <!-- Row 1: scrolls left (filled by JS) -->
   <div class="photo-marquee-wrap overflow-hidden fade-up" style="transition-delay: 0.1s;">
-    <div class="photo-marquee-track flex items-center gap-4 w-max py-3">
-      {doubled1.map((photo) => (
-        <div class="w-72 rounded-2xl overflow-hidden shadow-md shadow-purple-100/50 flex-shrink-0">
-          <img
-            src={photo.src}
-            alt={photo.alt}
-            class="w-full h-52 object-cover"
-            onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
-            loading="lazy"
-          />
-          <div
-            class="w-full h-52 hidden items-center justify-center"
-            style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
-          ></div>
-        </div>
-      ))}
-    </div>
+    <div id="marquee-row-1" class="photo-marquee-track flex items-center gap-4 w-max py-3"></div>
   </div>
 
-  <!-- Row 2: scrolls right -->
+  <!-- Row 2: scrolls right (filled by JS) -->
   <div class="photo-marquee-wrap overflow-hidden fade-up" style="transition-delay: 0.2s;">
-    <div class="photo-marquee-track-reverse flex items-center gap-4 w-max py-3">
-      {doubled2.map((photo) => (
-        <div class="w-72 rounded-2xl overflow-hidden shadow-md shadow-purple-100/50 flex-shrink-0">
-          <img
-            src={photo.src}
-            alt={photo.alt}
-            class="w-full h-52 object-cover"
-            onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
-            loading="lazy"
-          />
-          <div
-            class="w-full h-52 hidden items-center justify-center"
-            style="background: linear-gradient(135deg, #e0cff0 0%, #d5bef5 100%);"
-          ></div>
-        </div>
-      ))}
-    </div>
+    <div id="marquee-row-2" class="photo-marquee-track-reverse flex items-center gap-4 w-max py-3"></div>
   </div>
 </section>
+
+<script define:vars={{ allPhotos }}>
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function buildCard(photo, gradient) {
+    const card = document.createElement('div');
+    card.className = 'w-72 rounded-2xl overflow-hidden shadow-md shadow-purple-100/50 flex-shrink-0';
+
+    const img = document.createElement('img');
+    img.src = photo.src;
+    img.alt = photo.alt;
+    img.className = 'w-full h-52 object-cover';
+    img.loading = 'lazy';
+
+    const fallback = document.createElement('div');
+    fallback.className = 'w-full h-52 hidden items-center justify-center';
+    fallback.style.background = gradient;
+
+    img.onerror = () => {
+      img.style.display = 'none';
+      fallback.style.display = 'flex';
+    };
+
+    card.appendChild(img);
+    card.appendChild(fallback);
+    return card;
+  }
+
+  const shuffled = shuffle(allPhotos);
+  const mid = Math.ceil(shuffled.length / 2);
+  const row1 = shuffled.slice(0, mid);
+  const row2 = shuffled.slice(mid);
+
+  const grad1 = 'linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%)';
+  const grad2 = 'linear-gradient(135deg, #e0cff0 0%, #d5bef5 100%)';
+
+  function fillRow(id, photos, gradient) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    // Duplicate for seamless loop
+    [...photos, ...photos].forEach((photo) => {
+      el.appendChild(buildCard(photo, gradient));
+    });
+  }
+
+  fillRow('marquee-row-1', row1, grad1);
+  fillRow('marquee-row-2', row2, grad2);
+</script>
