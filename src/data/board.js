@@ -48,7 +48,7 @@ export const gac = [
   { name: "Zoe Mehta",        school: "Massachusetts Institute of Technology",            photo: "/images/board/zoe-mehta.jpg" },
   { name: "Sophia Zheng",     school: "Columbia University",                             photo: "/images/board/sophia-zheng.jpg" },
   { name: "Carissa Chen",     school: "Harvard University",                               photo: "/images/board/carissa-chen.jpg" },
-  { name: "Zahra Moosani",    school: "Purdue University",                               photo: "/images/board/zahra-moosani.jpg" },
+  { name: "Zahra Moosani",    school: "University of Wisconsin–Madison",                photo: "/images/board/zahra-moosani.jpg" },
   { name: "Laasya Manikonda", school: "Stanford University",                             photo: "/images/board/laasya-manikonda.jpg" },
   { name: "Ayesha Khan",      school: "University of Illinois Urbana-Champaign",          photo: "/images/board/ayesha-khan.jpg" },
 ];
