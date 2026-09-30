@@ -1,5 +1,5 @@
 ---
-import { cofounders, gec, gac } from '../data/board.js';
+import { cofounders, gec, gac, alumni } from '../data/board.js';
 import { coreTeam } from '../data/core-team.js';
 import Affiliations from './Affiliations.astro';
 
@@ -162,7 +162,7 @@ const imgSrc = (path: string) => path ? base + path : '';
       </div>
 
       <!-- GirlCon Advisory Committee -->
-      <div>
+      <div class="mb-16">
         <div class="text-center mb-10">
           <span class="inline-block bg-[#ede4f7] text-[#6b4fa0] text-xs font-bold tracking-[0.12em] uppercase px-5 py-2 rounded-full">
             GirlCon Advisory Committee
@@ -171,6 +171,40 @@ const imgSrc = (path: string) => path ? base + path : '';
 
           <div class="flex flex-wrap justify-center gap-4 max-w-[752px] mx-auto">
             {gac.map((person) => (
+              <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem] flex flex-col">
+                <div class="overflow-hidden aspect-square">
+                  {person.photo ? (
+                    <img
+                      src={imgSrc(person.photo)}
+                      alt={person.name}
+                      class="team-photo w-full h-full object-cover object-top"
+                      onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
+                    />
+                  ) : null}
+                  <div
+                    class={`w-full h-full ${person.photo ? 'hidden' : 'flex'} items-center justify-center text-2xl font-bold text-[#6b4fa0]`}
+                    style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
+                  >{initials(person.name)}</div>
+                </div>
+                <div class="flex-1 flex flex-col px-3 pt-4 pb-3 text-center">
+                  <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
+                  <Affiliations school={person.school} company={person.company} />
+                </div>
+              </div>
+            ))}
+          </div>
+      </div>
+
+      <!-- GirlCon Alumni Community -->
+      <div>
+        <div class="text-center mb-10">
+          <span class="inline-block bg-[#ede4f7] text-[#6b4fa0] text-xs font-bold tracking-[0.12em] uppercase px-5 py-2 rounded-full">
+            GirlCon Alumni Community
+          </span>
+        </div>
+
+          <div class="flex flex-wrap justify-center gap-4 max-w-[752px] mx-auto">
+            {alumni.map((person) => (
               <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem] flex flex-col">
                 <div class="overflow-hidden aspect-square">
                   {person.photo ? (
