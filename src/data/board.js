@@ -50,6 +50,7 @@ export const gac = [
   { name: "Carissa Chen",     school: "Harvard University",                               photo: "/images/board/carissa-chen.jpg" },
   { name: "Zahra Moosani",    school: "Purdue University",                               photo: "/images/board/zahra-moosani.jpg" },
   { name: "Laasya Manikonda", school: "Stanford University",                             photo: "/images/board/laasya-manikonda.jpg" },
+  { name: "Ayesha Khan",      school: "University of Illinois Urbana-Champaign",          photo: "/images/board/ayesha-khan.jpg" },
 ];
 
 // GirlCon Alumni Community
