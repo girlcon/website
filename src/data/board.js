@@ -7,12 +7,14 @@ export const cofounders = [
     name: "Molly Graton",
     role: "Co-Founder",
     school: "University of Illinois Urbana-Champaign",
+    company: "Google",
     photo: "/images/board/molly-graton.jpg",
   },
   {
     name: "Kyla Guru",
     role: "Co-Founder",
     school: "Stanford University",
+    company: "Anthropic",
     photo: "/images/board/kyla-guru.jpg",
   },
 ];
@@ -20,19 +22,19 @@ export const cofounders = [
 // GirlCon Executive Committee — three subcommittees
 export const gec = {
   futures: [
-    { name: "Zaryaab Khan",     school: "Columbia University",                     photo: "/images/board/zaryaab-khan.jpg" },
-    { name: "Ellie Goldsmith",  school: "Northwestern University",                 photo: "/images/board/ellie-goldsmith.jpg" },
-    { name: "Ariana Goldstein", school: "University of Southern California",       photo: "/images/board/ariana-goldstein.jpg" },
+    { name: "Zaryaab Khan",     school: "Columbia University",                     company: "PwC", photo: "/images/board/zaryaab-khan.jpg" },
+    { name: "Ellie Goldsmith",  school: "Northwestern University",                 company: "Microsoft", photo: "/images/board/ellie-goldsmith.jpg" },
+    { name: "Ariana Goldstein", school: "University of Southern California",       company: "Bloomberg", photo: "/images/board/ariana-goldstein.jpg" },
     { name: "Sarah Narula",     school: "Washington University at St. Louis",      photo: "/images/board/sarah-narula.jpg" },
   ],
   chapters: [
     { name: "Prachi Gyanmote", school: "University of Illinois Urbana-Champaign", photo: "/images/board/prachi-gyanmote.jpg" },
-    { name: "Vidya Bharadwaj", school: "University of Illinois Urbana-Champaign", photo: "/images/board/vidya-bharadwaj.jpg" },
+    { name: "Vidya Bharadwaj", school: "University of Illinois Urbana-Champaign", company: "RepuWhiz", photo: "/images/board/vidya-bharadwaj.jpg" },
     { name: "Sanya Mahajan",   school: "Cornell University",                      photo: "/images/board/sanya-mahajan.jpg" },
-    { name: "Sneha Mohan",     school: "University of Illinois Urbana-Champaign", photo: "/images/board/sneha-mohan.jpg" },
+    { name: "Sneha Mohan",     school: "University of Illinois Urbana-Champaign", company: "SpaceX", photo: "/images/board/sneha-mohan.jpg" },
   ],
   internal: [
-    { name: "Ally Geren",     school: "University of Illinois Urbana-Champaign", photo: "/images/board/ally-geren.jpg" },
+    { name: "Ally Geren",     school: "University of Illinois Urbana-Champaign", company: "Netflix", photo: "/images/board/ally-geren.jpg" },
     { name: "Danica Sun",     school: "Stanford University",                     photo: "/images/board/danica-sun.jpg" },
     { name: "Riddhi Bhagwat", school: "Massachusetts Institute of Technology",   photo: "/images/board/riddhi-bhagwat.jpg" },
   ],

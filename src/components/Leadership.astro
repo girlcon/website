@@ -1,6 +1,7 @@
 ---
 import { cofounders, gec, gac } from '../data/board.js';
 import { coreTeam } from '../data/core-team.js';
+import Affiliations from './Affiliations.astro';
 
 function initials(name: string) {
   return name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase();
@@ -42,7 +43,7 @@ const imgSrc = (path: string) => path ? base + path : '';
         <h3 class="text-center text-sm font-semibold tracking-widest uppercase text-[#7c6f8a] mb-8">Co-Founders</h3>
         <div class="flex justify-center gap-4">
           {cofounders.map((person) => (
-            <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem]">
+            <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem] flex flex-col">
               <div class="overflow-hidden aspect-square">
                 <img
                   src={imgSrc(person.photo)}
@@ -55,9 +56,9 @@ const imgSrc = (path: string) => path ? base + path : '';
                   style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
                 >{initials(person.name)}</div>
               </div>
-              <div class="px-4 pt-4 pb-6 text-center">
+              <div class="flex-1 flex flex-col px-3 pt-4 pb-3 text-center">
                 <p class="font-semibold text-[#1a1225]">{person.name}</p>
-                {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
+                <Affiliations school={person.school} company={person.company} />
               </div>
             </div>
           ))}
@@ -77,7 +78,7 @@ const imgSrc = (path: string) => path ? base + path : '';
           <h4 class="text-center text-xs font-semibold tracking-widest uppercase text-[#a180be] mb-6">GirlCon Futures</h4>
           <div class="flex flex-wrap justify-center gap-4 max-w-[752px] mx-auto">
             {gec.futures.map((person) => (
-              <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem]">
+              <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem] flex flex-col">
                 <div class="overflow-hidden aspect-square">
                   {person.photo ? (
                     <img
@@ -92,9 +93,9 @@ const imgSrc = (path: string) => path ? base + path : '';
                     style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
                   >{initials(person.name)}</div>
                 </div>
-                <div class="px-3 pt-4 pb-5 text-center">
+                <div class="flex-1 flex flex-col px-3 pt-4 pb-3 text-center">
                   <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
-                  {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
+                  <Affiliations school={person.school} company={person.company} />
                 </div>
               </div>
             ))}
@@ -106,7 +107,7 @@ const imgSrc = (path: string) => path ? base + path : '';
           <h4 class="text-center text-xs font-semibold tracking-widest uppercase text-[#a180be] mb-6">GirlCon Chapters</h4>
           <div class="flex flex-wrap justify-center gap-4 max-w-[752px] mx-auto">
             {gec.chapters.map((person) => (
-              <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem]">
+              <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem] flex flex-col">
                 <div class="overflow-hidden aspect-square">
                   {person.photo ? (
                     <img
@@ -121,9 +122,9 @@ const imgSrc = (path: string) => path ? base + path : '';
                     style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
                   >{initials(person.name)}</div>
                 </div>
-                <div class="px-3 pt-4 pb-5 text-center">
+                <div class="flex-1 flex flex-col px-3 pt-4 pb-3 text-center">
                   <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
-                  {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
+                  <Affiliations school={person.school} company={person.company} />
                 </div>
               </div>
             ))}
@@ -135,7 +136,7 @@ const imgSrc = (path: string) => path ? base + path : '';
           <h4 class="text-center text-xs font-semibold tracking-widest uppercase text-[#a180be] mb-6">GirlCon Internal</h4>
           <div class="flex flex-wrap justify-center gap-4 max-w-[752px] mx-auto">
             {gec.internal.map((person) => (
-              <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem]">
+              <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem] flex flex-col">
                 <div class="overflow-hidden aspect-square">
                   {person.photo ? (
                     <img
@@ -150,9 +151,9 @@ const imgSrc = (path: string) => path ? base + path : '';
                     style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
                   >{initials(person.name)}</div>
                 </div>
-                <div class="px-3 pt-4 pb-5 text-center">
+                <div class="flex-1 flex flex-col px-3 pt-4 pb-3 text-center">
                   <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
-                  {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
+                  <Affiliations school={person.school} company={person.company} />
                 </div>
               </div>
             ))}
@@ -170,7 +171,7 @@ const imgSrc = (path: string) => path ? base + path : '';
 
           <div class="flex flex-wrap justify-center gap-4 max-w-[752px] mx-auto">
             {gac.map((person) => (
-              <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem]">
+              <div class="team-card bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-50 w-[calc(50%-8px)] md:w-44 max-w-[11rem] flex flex-col">
                 <div class="overflow-hidden aspect-square">
                   {person.photo ? (
                     <img
@@ -185,9 +186,9 @@ const imgSrc = (path: string) => path ? base + path : '';
                     style="background: linear-gradient(135deg, #f3ecf8 0%, #e0cff0 100%);"
                   >{initials(person.name)}</div>
                 </div>
-                <div class="px-3 pt-4 pb-5 text-center">
+                <div class="flex-1 flex flex-col px-3 pt-4 pb-3 text-center">
                   <p class="font-semibold text-[#1a1225] text-sm">{person.name}</p>
-                  {person.school && <p class="text-xs text-[#7c6f8a] mt-1">{person.school}</p>}
+                  <Affiliations school={person.school} company={person.company} />
                 </div>
               </div>
             ))}
