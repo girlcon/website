@@ -12,6 +12,11 @@ export const faqs = [
       "GirlCon has two events: GirlCon Virtual (online) and GirlCon Chicago (in-person). Join our email list below and stay tuned to our website and Instagram for updates on upcoming events!",
   },
   {
+    question: "I'm not local to Chicago. Can I still attend?",
+    answer:
+      "Yes! In addition to GirlCon Chicago, we host GirlCon pop-up events in cities around the world, plus virtual events throughout the year that anyone can join from anywhere. Join our email list below and follow us on Instagram to hear about pop-ups and virtual events near you!",
+  },
+  {
     question: "What should I bring to online sessions?",
     answer:
       "Just your smiley face and a positive attitude! You will need a device and internet connection to access the sessions, and maybe a notepad to write down all the amazing new things you learn.",
