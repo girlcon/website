@@ -30,7 +30,7 @@ export const gec = {
   ],
   chapters: [
     { name: "Annie Duan",       school: "Georgetown University",                             photo: "/images/board/annie-duan.jpg" },
-    { name: "Prachi Gyanmote",  school: "University of Illinois Urbana-Champaign",          photo: "/images/board/prachi-gyanmote.jpg" },
+    { name: "Prachi Gyanmote",  school: "University of Illinois Urbana-Champaign",          company: "United Airlines", photo: "/images/board/prachi-gyanmote.jpg" },
     { name: "Sanya Mahajan",    school: "Cornell University",                               photo: "/images/board/sanya-mahajan.jpg" },
     { name: "Vidya Bharadwaj",  school: "University of Illinois Urbana-Champaign",          company: "RepuWhiz", photo: "/images/board/vidya-bharadwaj.jpg" },
     { name: "Sneha Mohan",      school: "University of Illinois Urbana-Champaign",          company: "SpaceX", photo: "/images/board/sneha-mohan.jpg" },
